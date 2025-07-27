@@ -1,0 +1,15 @@
+//java
+class Solution {
+    public String longest(List<String> arr) {
+        
+        String longest=arr.get(0);
+        for(int i=1;i<arr.size();i++)
+        {
+            if(arr.get(i).length()>longest.length())
+            {
+                longest=arr.get(i);
+            }
+        }
+        return longest;
+    }
+}
