@@ -1,0 +1,8 @@
+//JAVA
+class Solution {
+    public static int leftElement(int[] arr) {
+        Arrays.sort(arr); 
+        int n = arr.length-1;
+        return arr[n / 2];
+    }
+}
