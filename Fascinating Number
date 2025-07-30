@@ -1,0 +1,39 @@
+//Java
+class Solution {
+    boolean fascinating(long n) {
+        
+        if(n<100)
+        {
+            return false;   
+        }
+        
+        String concatenated=n+"" +(n*2)+(n*3);
+        
+        if(concatenated.length()!=9)
+        {
+            return false;
+        }
+        
+        int[] count=new int[10];
+        
+        for(int i=0;i<concatenated.length();i++)
+        {
+            int digit=concatenated.charAt(i)-'0';
+            if(digit==0)
+            {
+                return false;
+            }
+            count[digit]++;
+        }
+        
+        for(int i=1;i<=9;i++)
+        {
+            if(count[i]!=1)
+            {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+}
