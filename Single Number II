@@ -1,0 +1,39 @@
+//for number less than 100
+/*int singleNumber(int* nums, int numsSize) {
+    
+    int freq[100]={0};
+
+    for(int i=0;i<numsSize;i++)
+    {
+        freq[nums[i]]++;
+    }
+    for(int i=0;i<100;i++)
+    {
+        if(freq[i]==1)
+        {
+            return i; 
+        }
+    }
+    return -1;
+}*/
+
+int singleNumber(int* nums, int numsSize) {
+    int ones = 0, twos = 0;
+
+    for (int i = 0; i < numsSize; i++) {
+        int num = nums[i];
+
+        // first appearance:
+        // add it to `ones`
+        // but remove from `twos` if it's already there
+        ones = (ones ^ num) & ~twos;
+
+        // second appearance:
+        // add to `twos`
+        // but remove from `ones` if it's already there
+        twos = (twos ^ num) & ~ones;
+    }
+
+    // `ones` will contain the number that appears exactly once
+    return ones;
+}
