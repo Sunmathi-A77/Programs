@@ -1,0 +1,35 @@
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* zigzagTraversal(int** grid, int gridSize, int* gridColSize, int* returnSize) {
+
+    int i,j,k=0;
+    int* result=(int*) malloc(sizeof(int)*gridSize*50);
+
+    for(i=0;i<gridSize;i++)
+    {
+        int m=gridColSize[i];
+        if(i%2==0)
+        {
+            for(j=0;j<m;j++)
+            {
+                if(j%2==0)
+                {
+                    result[k++]=grid[i][j];
+                }
+            }
+        }
+        if(i%2!=0)
+        {
+            for(j=m-1;j>=0;j--)
+            {
+                if(j%2!=0)
+                {
+                    result[k++]=grid[i][j];
+                }
+            }
+        }
+    }
+    *returnSize=k;
+    return result;
+}
