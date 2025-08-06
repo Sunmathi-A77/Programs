@@ -1,0 +1,21 @@
+char* convertToTitle(int columnNumber) {
+    static char result[10];
+    int index = 0;
+
+    while (columnNumber > 0) 
+    {
+        columnNumber--;
+        result[index++] = 'A' + (columnNumber % 26);
+        columnNumber /= 26;
+    }
+
+    for (int i = 0; i < index / 2; i++) 
+    {
+        char temp = result[i];
+        result[i] = result[index - 1 - i];
+        result[index - 1 - i] = temp;
+    }
+
+    result[index] = '\0';
+    return result;
+}
