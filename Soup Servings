@@ -1,0 +1,33 @@
+double dp[200][200];
+double poursoup(int a, int b)
+{
+    // cal probability
+    if (a<=0&&b<=0) return 0.5; // out together
+    else if(a<=0) return 1; // just A out
+    else if (b<=0) return 0; // just B out
+
+    else if (dp[a][b]!=0) return dp[a][b]; // dont want to reuse calculated steps
+
+   //DP for each case: 1, 2, 3, 4
+   else{
+    double output1 = poursoup(a - 4, b);
+    double output2 =  poursoup(a - 3, b - 1);
+    double output3 =  poursoup(a - 2, b - 2);
+    double output4 =  poursoup(a - 1, b - 3);
+    // save in 2D arr for skipping use times
+    if (a >= 4) 
+      dp[a - 4][b] = output1;
+    if (a >= 3 && b >= 1) 
+      dp[a - 3][b - 1] = output2;
+    if (a >= 2 && b >= 2) 
+     dp[a - 2][b - 2] = output3;
+    if (a >= 1 && b >= 3) 
+     dp[a - 1][b - 3] = output4;
+    return 0.25 * (output1 + output2 + output3 + output4);
+}}
+
+double soupServings(int n) {
+    if (n>4280) return 1; // n is large enough to return approximately 1.0
+    n = (n+25-1)/25; // the number of operations
+    return poursoup(n,n);
+}
