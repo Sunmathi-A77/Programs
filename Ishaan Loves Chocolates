@@ -1,0 +1,18 @@
+// User function Template for C
+
+int chocolates(int arr[], int l, int r) {
+    
+    while(l<r)
+    {
+        if(arr[l]>arr[r])
+        {
+            l++;
+        }
+        else
+        {
+            r--;
+        }
+    }
+    
+    return arr[l];
+}
