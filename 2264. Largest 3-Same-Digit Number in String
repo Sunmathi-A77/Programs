@@ -1,0 +1,21 @@
+char* largestGoodInteger(char* num) {
+
+    char* best=malloc(4);
+    strcpy(best,"");
+
+    int n=strlen(num);
+
+    for(int i=0;i+2<n;i++)
+    {
+        if(num[i]==num[i+1] && num[i]==num[i+2])
+        {
+            char cur[4]={num[i],num[i],num[i],'\0'};
+            if(strcmp(cur,best)>0)  //if(cur[0]>best[0])
+            {
+                strcpy(best,cur);
+            }
+        }
+    }
+
+    return best;    
+}
