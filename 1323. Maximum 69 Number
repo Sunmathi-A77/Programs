@@ -1,0 +1,17 @@
+int maximum69Number (int num) {
+    
+    char str[6];    
+    
+    sprintf(str, "%d", num);     // convert integer to string
+
+    for (int i = 0; str[i] != '\0'; i++) 
+    {
+        if (str[i] == '6') 
+        {
+            str[i] = '9';
+            break;
+        }
+    }
+
+    return atoi(str);   // convert string back to integer
+}
