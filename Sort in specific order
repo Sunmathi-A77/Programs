@@ -1,0 +1,36 @@
+class Solution {
+    public void sortIt(int[] arr) {
+        
+        List<Integer> odds = new ArrayList<>();
+        List<Integer> evens = new ArrayList<>();
+
+        for (int x : arr) 
+        {
+            if (x % 2 == 0) 
+            {
+                evens.add(x);
+            } 
+            else 
+            {
+                odds.add(x);
+            }
+        }
+
+    
+        Collections.sort(odds, Collections.reverseOrder());
+
+        Collections.sort(evens);
+
+        int idx = 0;
+        
+        for (int x : odds) 
+        {
+            arr[idx++] = x;
+        }
+        
+        for (int x : evens) 
+        {
+            arr[idx++] = x;
+        }
+    }
+}
