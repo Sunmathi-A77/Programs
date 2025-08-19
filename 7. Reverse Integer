@@ -1,0 +1,30 @@
+int reverse(int x) {
+
+    char str[50]; 
+    sprintf(str, "%d", x);
+
+    int start = 0, end = strlen(str) - 1;
+
+    if (str[0] == '-') 
+    {
+        start = 1;
+    }
+
+    while (start < end) 
+    {
+        char temp = str[start];
+        str[start] = str[end];
+        str[end] = temp;
+        start++;
+        end--;
+    }
+
+    long result = atol(str);
+
+    if (result > INT_MAX || result < INT_MIN) 
+    {
+        return 0;
+    }
+
+    return (int)result;
+}
