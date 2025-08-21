@@ -1,0 +1,32 @@
+class Solution {
+    public boolean searchEle(List<Integer> arr, int x) {
+        
+        for(int i=0;i<arr.size();i++)
+        {
+            if(arr.get(i)==x)
+            {
+                return true;
+            }
+        }
+        return false;
+}
+
+    public boolean insertEle(List<Integer> arr, int y, int yi) {
+        
+        if(yi<0 || yi>arr.size())
+        {
+            return false;
+        }
+        
+        arr.add(yi,y);
+        return true;
+        
+    }
+
+    public boolean deleteEle(List<Integer> arr, int z) {
+
+        return arr.remove((Integer)z);
+    }
+    
+    
+}
