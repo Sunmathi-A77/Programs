@@ -1,0 +1,37 @@
+bool wordPattern(char* pattern, char* s) {
+    
+    char* word[300];
+    int count=0;
+
+    char* token=strtok(s," ");
+
+    while(token)
+    {
+        word[count++]=token;
+        token=strtok(NULL," ");
+    }
+
+    int n=strlen(pattern);
+
+    if(n!=count)
+    {
+        return false;
+    }
+
+    for(int i=0;i<n;i++)
+    {
+        for(int j=i+1;j<n;j++)
+        {
+            if(pattern[i]==pattern[j] && strcmp(word[i],word[j])!=0)
+            {
+                return false;
+            }
+            if(pattern[i]!=pattern[j] && strcmp(word[i],word[j])==0)
+            {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
