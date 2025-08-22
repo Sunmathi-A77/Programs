@@ -1,0 +1,16 @@
+int findMax(struct Height arr[], int n) {
+    
+    int maxval=0;
+    
+    for(int i=0;i<n;i++)
+    {
+        int height=arr[i].feet*12+arr[i].inches;
+        
+        if(height>maxval)
+        {
+            maxval=height;
+        }
+    }
+    
+    return maxval;
+}
