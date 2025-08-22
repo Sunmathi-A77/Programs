@@ -1,0 +1,55 @@
+/*char* toHex(int num) {
+
+    static char hex[9];
+    char digit[]="0123456789abcdef";
+
+    if(num==0)
+    {
+        return "0";
+    }
+
+    unsigned int n=(unsigned int) num;
+    int i=8;
+    hex[i]='\0';
+
+    while(n>0)
+    {
+        hex[--i]=digit[n & 0xf];
+        n>>=4;
+    }
+    
+    return &hex[i];
+}*/
+
+
+char* toHex(int num) {
+
+    static char hex[9];
+    char digit[]="0123456789abcdef";
+
+    if(num==0)
+    {
+        return "0";
+    }
+
+    unsigned int n=num;
+    int i=0;
+
+    while(n>0)
+    {
+        int rem=n%16;
+        hex[i++]=digit[rem];
+        n/=16;
+    }
+
+    hex[i]='\0';
+
+    for(int j=0;j<i/2;j++)
+    {
+        int temp=hex[j];
+        hex[j]=hex[i-1-j];
+        hex[i-1-j]=temp;
+    }
+
+    return hex;
+}
