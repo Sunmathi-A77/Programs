@@ -1,0 +1,23 @@
+class Solution {
+    public int num(int k, int arr[]) {
+        
+        int count=0;
+        
+        for(int num:arr)
+        {
+            int temp=num;
+            
+            while(temp>0)
+            {
+                int digit=temp%10;
+                if(digit==k)
+                {
+                    count++;
+                }
+                temp/=10;
+            }
+        }
+        
+        return count;
+    }
+}
