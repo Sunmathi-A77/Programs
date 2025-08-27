@@ -1,0 +1,33 @@
+// User function Template for Java
+
+class Solution {
+    public int[] pendulumArrangement(int arr[]) {
+        
+        int n=arr.length;
+        
+        Arrays.sort(arr);
+        
+        int[] result=new int[n];
+        
+        int mid=(n-1)/2;
+        int left=mid-1,right=mid+1;
+        
+        result[mid]=arr[0];
+        
+        int index=1;
+        
+        while(index<n)
+        {
+            if(right<n)
+            {
+                result[right++]=arr[index++];
+            }
+            if(index<n && left>=0)
+            {
+                result[left--]=arr[index++];
+            }
+        }
+        
+        return result;
+    }
+}
