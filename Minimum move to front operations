@@ -1,0 +1,18 @@
+class Solution {
+    // Function to find the minimum number of moves required.
+    public int minMoves(ArrayList<Integer> arr) {
+
+        int n=arr.size();
+        int move=n;
+        
+        for(int i=n-1;i>=0;i--)
+        {
+            if(arr.get(i)==move)
+            {
+                move--;
+            }
+        }
+        
+        return move;
+    }
+}
