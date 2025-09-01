@@ -1,0 +1,24 @@
+class Solution {
+    
+    public int[] getFreq(int x, int n) {
+        
+        int[] freq=new int[10];
+        long power=1L;
+        
+        for(int i=1;i<=n;i++)
+        {
+            power*=x;
+            
+            long temp=power;
+            
+            while(temp>0)
+            {
+                int digit=(int)(temp%10);
+                freq[digit]++;
+                temp/=10;
+            }
+        }
+        
+        return freq;
+    }
+}
