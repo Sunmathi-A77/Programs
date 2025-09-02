@@ -1,0 +1,70 @@
+/*class Solution {
+    public int findMaxOddSum(int[] arr) {
+        int sum = 0;
+        int minPosOdd = Integer.MAX_VALUE;
+        int maxNegOdd = Integer.MIN_VALUE;
+
+        for (int x : arr) 
+        {
+            if (x > 0) 
+            {
+                sum += x;
+                if (x % 2 != 0) 
+                {
+                    minPosOdd = Math.min(minPosOdd, x);
+                }
+            } 
+            else if (x < 0 && x % 2 != 0) 
+            {
+                maxNegOdd = Math.max(maxNegOdd, x);
+            }
+        }
+
+        if (sum % 2 != 0) 
+        {
+            return sum;
+        }
+
+        int option1 = (minPosOdd != Integer.MAX_VALUE) ? sum - minPosOdd : Integer.MIN_VALUE;
+        int option2 = (maxNegOdd != Integer.MIN_VALUE) ? sum + maxNegOdd : Integer.MIN_VALUE;
+
+        int result = Math.max(option1, option2);
+
+        return (result == Integer.MIN_VALUE) ? -1 : result;
+    }
+}*/
+
+class Solution 
+{
+    public int findMaxOddSum(int[] arr) 
+    {
+        int sum = 0;
+        int minOddAbs = Integer.MAX_VALUE;
+
+        for (int x : arr) 
+        {
+            if (x > 0) 
+            {
+                sum += x;
+            }
+            
+            if (x % 2 != 0) 
+            {
+                minOddAbs = Math.min(minOddAbs, Math.abs(x));
+            }
+        }
+
+        if (sum % 2 != 0) 
+        {
+            return sum;
+        }
+
+        if (minOddAbs == Integer.MAX_VALUE) 
+        {
+            return -1;
+        }
+
+        return sum - minOddAbs;
+    }
+}
+
