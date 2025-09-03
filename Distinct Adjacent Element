@@ -1,0 +1,28 @@
+class Solution {
+    public boolean distinctAdjacentElement(int[] arr) {
+
+    int n=arr.length;
+    
+    if(n<=1)
+    {
+        return true;
+    }
+    
+    Map<Integer, Integer> freq = new HashMap<>();
+    
+        int maxFreq = 0;
+        
+        for (int v : arr) 
+        {
+            int f = freq.getOrDefault(v, 0) + 1;
+            freq.put(v, f);
+            if (f > maxFreq)
+            {
+                maxFreq = f;
+            }
+        }
+
+        return maxFreq <= (n + 1) / 2;
+    
+    }
+}
