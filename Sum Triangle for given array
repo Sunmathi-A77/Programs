@@ -1,0 +1,39 @@
+class Solution {
+    
+    static final int MOD=1000000007;
+    
+    public ArrayList<Integer> getTriangle(int[] arr) {
+        
+        int n=arr.length;
+        
+        List<List<Integer>> rows = new ArrayList<>();
+        
+        int[] temp=Arrays.copyOf(arr,n);
+        
+        while(n>0)
+        {
+            List<Integer> row =new ArrayList<>();
+            
+            for(int i=0;i<n;i++)
+            {
+                row.add(temp[i]);
+            }
+            rows.add(row);
+            
+            for(int i=0;i<n-1;i++)
+            {
+                temp[i]=(int)(((long) temp[i] + temp[i+1]) % MOD);
+            }
+            n--;
+        }
+        
+        ArrayList<Integer> result=new ArrayList<>();
+        
+        for(int i=rows.size()-1;i>=0;i--)
+        {
+            result.addAll(rows.get(i));
+        }
+
+        return result;
+    }
+}
