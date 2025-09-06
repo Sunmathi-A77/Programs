@@ -1,0 +1,22 @@
+class Solution {
+
+    public int getIndexInSortedArray(int[] arr, int k) {
+
+        int target=arr[k];
+        int countsmaller=0,countequalbefore=0;
+        
+        for(int i=0;i<arr.length;i++)
+        {
+            if(arr[i]<target)
+            {
+                countsmaller++;
+            }
+            if(arr[i]==target && i<k)
+            {
+                countequalbefore++;
+            }
+        }
+        
+        return countsmaller+countequalbefore;
+    }
+}
