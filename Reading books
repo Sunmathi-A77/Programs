@@ -1,0 +1,20 @@
+class Solution {
+    
+    public int maxPoint(int k, int[] arr1, int[] arr2) {
+
+        int maxpoints=0;
+        
+        for(int i=0;i<arr1.length;i++)
+        {
+            int times = k / arr1[i];
+            int points = times * arr2[i];
+            
+            if(points > maxpoints)
+            {
+                maxpoints = points;
+            }
+        }
+        
+        return maxpoints;
+    }
+}
