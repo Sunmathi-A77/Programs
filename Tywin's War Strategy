@@ -1,0 +1,38 @@
+class Solution {
+    public int minSoldiers(int[] arr, int k) {
+        
+        int n=arr.length;
+        int target=(n+1)/2;
+        int lucky=0;
+        
+        List<Integer> costs = new ArrayList<>();
+        
+        for(int num:arr)
+        {
+            if(num % k == 0)
+            {
+                lucky++;
+            }
+            else
+            {
+                costs.add(k- (num % k));
+            }
+        }
+
+        if(lucky>=target)
+        {
+            return 0;
+        }
+        
+        Collections.sort(costs);
+        
+        int total=0;
+        
+        for(int i=0;i<target-lucky;i++)
+        {
+            total+=costs.get(i);
+        }
+        
+        return total;
+    }
+}
