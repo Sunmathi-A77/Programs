@@ -1,0 +1,35 @@
+class Solution {
+    public String winner(int[] arr, int m, int n) {
+
+        int ramwins=0,rohanwins=0;
+        
+        for(int strength:arr)
+        {
+            if(strength % m==0 && strength % n==0) 
+            {
+                ramwins++;
+            }
+            else if(strength % m==0)
+            {
+                ramwins++;
+            }
+            else if(strength % n==0)
+            {
+                rohanwins++;
+            }
+        }
+        
+        if(ramwins>rohanwins)
+        {
+            return "Ram";
+        }
+        else if(rohanwins>ramwins)
+        {
+            return "Rohan";
+        }
+        else
+        {
+            return "Both";
+        }
+    }
+}
