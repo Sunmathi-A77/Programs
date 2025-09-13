@@ -1,0 +1,43 @@
+class Solution {
+    public List<Integer> getDistinct(int[] arr) {
+        
+        int OFFSET = 1000000;
+        int MAX = 2000001;
+
+        int[] freq = new int[MAX];
+        int distinctCount = 0;
+        List<Integer> result = new ArrayList<>();
+
+        for (int val : arr) 
+        {
+            int idx = Math.abs(val) + OFFSET;
+
+            if (val > 0) 
+            {
+                if (freq[idx] == 0)
+                {
+                    distinctCount++;
+                }
+                
+                freq[idx]++;
+            } 
+            else 
+            {
+                if (freq[idx] > 0) 
+                {
+                    freq[idx]--;
+                    
+                    if (freq[idx] == 0)
+                    {
+                        distinctCount--;
+                    }
+                }
+            }
+            
+            result.add(distinctCount);
+        }
+        
+        return result;
+
+    }
+}
