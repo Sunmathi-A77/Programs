@@ -1,0 +1,39 @@
+int canBeTypedWords(char* text, char* brokenLetters) {
+
+    int broken[26] = {0};
+
+    for (int i = 0; brokenLetters[i] != '\0'; i++) 
+    {
+        broken[brokenLetters[i] - 'a'] = 1;
+    }
+
+    int count = 0;
+    bool canType = true;
+
+    for (int i = 0; text[i] != '\0'; i++) 
+    {
+        if (text[i] == ' ') 
+        {
+            if (canType)
+            {
+                count++;
+            }
+            canType = true;
+        } 
+        else 
+        {
+            if (broken[text[i] - 'a']) 
+            {
+                canType = false;
+            }
+        }
+    }
+
+    if (canType) 
+    {
+        count++;
+    }
+
+    return count;
+}
+    
