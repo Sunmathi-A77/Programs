@@ -1,0 +1,19 @@
+class Solution {
+
+    public boolean possible(int[] arr) {
+        
+        int n=arr.length;
+        
+        int totalgoods=0;
+        
+        for(int val:arr)
+        {
+            totalgoods+=val;
+        }
+        
+        int requiredgoods= n * (n+1) / 2;
+        
+        return totalgoods==requiredgoods;
+        
+    }
+}
