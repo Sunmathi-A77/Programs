@@ -1,0 +1,22 @@
+class Solution {
+    long distance(int[] arr) {
+        
+        int n = arr.length;
+        int[] pos = new int[n + 1];
+
+        for (int i = 0; i < n; i++) 
+        {
+            pos[arr[i]] = i;
+        }
+
+        long distance = 0;
+
+        for (int i = 1; i < n; i++) 
+        {
+            distance += Math.abs(pos[i] - pos[i + 1]);
+        }
+
+        return distance;
+        
+    }
+}
