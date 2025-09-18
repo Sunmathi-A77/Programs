@@ -1,0 +1,44 @@
+class Solution {
+    public int minSum(int[] arr1, int[] arr2) {
+        
+        int n = arr1.length;
+        int min1 = Integer.MAX_VALUE, min2 = Integer.MAX_VALUE, idx1 = -1;
+        
+        for (int i = 0; i < n; i++) 
+        {
+            if (arr1[i] < min1) 
+            {
+                min2 = min1;
+                min1 = arr1[i];
+                idx1 = i;
+            } 
+            else if (arr1[i] < min2) 
+            {
+                min2 = arr1[i];
+            }
+        }
+
+        int min3 = Integer.MAX_VALUE, min4 = Integer.MAX_VALUE, idx2 = -1;
+        
+        for (int i = 0; i < n; i++) 
+        {
+            if (arr2[i] < min3) 
+            {
+                min4 = min3;
+                min3 = arr2[i];
+                idx2 = i;
+            } 
+            else if (arr2[i] < min4) 
+            {
+                min4 = arr2[i];
+            }
+        }
+
+        if (idx1 != idx2) 
+        {
+            return min1 + min3;
+        }
+
+        return Math.min(min1 + min4, min2 + min3);
+    }
+}
