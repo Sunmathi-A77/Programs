@@ -1,0 +1,27 @@
+class Solution {
+    public int countTabs(List<String> arr) {
+
+        Set<String> openTabs = new HashSet<>();
+
+        for (String s : arr) 
+        {
+            if (s.equals("END")) 
+            {
+                openTabs.clear();
+            } 
+            else 
+            {
+                if (openTabs.contains(s)) 
+                {
+                    openTabs.remove(s);
+                } 
+                else 
+                {
+                    openTabs.add(s);
+                }
+            }
+        }
+
+        return openTabs.size();
+    }
+}
