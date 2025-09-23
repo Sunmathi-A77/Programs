@@ -1,0 +1,13 @@
+class Solution:
+    def countOddXorPairs(self, arr):
+        
+        evencount=0
+        oddcount=0
+        
+        for num in arr:
+            if num % 2==0:
+                evencount+=1
+            else:
+                oddcount+=1
+                
+        return evencount*oddcount
