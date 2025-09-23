@@ -1,0 +1,22 @@
+bool checkDivisibility(int n) {
+
+    int temp = n, digit;
+    int sum = 0,product = 1;
+
+    while(temp > 0)
+    {
+        digit = temp % 10;
+        sum += digit;
+        product *= digit;
+        temp /= 10;
+    }
+    
+    int total = sum + product;
+
+    if(n % total == 0)
+    {
+        return true;
+    }
+
+    return false;
+}
