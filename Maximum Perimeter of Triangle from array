@@ -1,0 +1,15 @@
+class Solution:
+    def maxPerimeter(self, arr):
+        
+        n=len(arr)
+        arr.sort(reverse=True)
+        
+        for i in range(n-2):
+            a=arr[i]
+            b=arr[i+1]
+            c=arr[i+2]
+            
+            if b+c>a:
+                return a+b+c
+        
+        return -1
