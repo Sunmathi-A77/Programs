@@ -1,0 +1,12 @@
+def Sandwiched_Vowel(s):
+    
+    vowels = set("aeiou")
+    n = len(s)
+    result = []
+    for i in range(n):
+        if s[i] in vowels:
+            if i>0 and i<n-1 and s[i-1] not in vowels and s[i+1] not in vowels:
+                continue
+        result.append(s[i])
+        
+    return "".join(result)
