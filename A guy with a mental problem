@@ -1,0 +1,24 @@
+class Solution:
+    def min_time(self, arr1, arr2):
+        
+        n = len(arr1)
+        time1 = 0
+        
+        for i in range(n):
+            if i % 2 == 0:
+                time1 += arr1[i]
+            else:
+                time1 += arr2[i]
+                
+        time2 = 0
+        
+        for i in range(n):
+            if i % 2 == 0:
+                time2 += arr2[i]
+            else:
+                time2 += arr1[i]
+                
+        result = min(time1, time2)
+        
+        return result
+                
