@@ -1,0 +1,10 @@
+class Solution:
+    def max_happiness(self, arr):
+        
+        n = len(arr)
+        max_sum = 0
+
+        for i in range(n - 1):
+            max_sum = max(max_sum, arr[i] + arr[i + 1])
+        
+        return max_sum
