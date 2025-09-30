@@ -1,0 +1,16 @@
+class Solution:
+    def countFibonacciNumbers(self, arr):
+        
+        max_val = max(arr)
+
+        fib_set = set()
+        a, b = 0, 1
+        while a <= max_val:
+            fib_set.add(a)
+            a, b = b, a + b
+
+        count = 0
+        for num in arr:
+            if num in fib_set:
+                count += 1
+        return count
