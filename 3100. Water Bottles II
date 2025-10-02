@@ -1,0 +1,13 @@
+class Solution(object):
+    def maxBottlesDrunk(self, numBottles, numExchange):
+        
+        total = numBottles
+        emp = numBottles
+
+        while emp >= numExchange:
+            emp -= numExchange
+            total += 1
+            emp += 1
+            numExchange += 1
+        
+        return total
