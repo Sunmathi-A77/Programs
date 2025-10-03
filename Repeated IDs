@@ -1,0 +1,14 @@
+#User function Template for python3
+
+class Solution:
+    def uniqueId(self, arr):
+        
+        seen = [False] * 10
+        result = []
+        
+        for i in arr:
+            if not seen[i]:
+                result.append(i)
+                seen[i] = True
+                
+        return result
