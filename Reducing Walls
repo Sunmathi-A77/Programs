@@ -1,0 +1,12 @@
+import math
+
+class Solution:
+    def reducingWalls(self, arr, k):
+        
+        count=0
+        
+        for i in arr:
+            if i > k:
+                count += math.ceil((i - k) / k)
+
+        return count
