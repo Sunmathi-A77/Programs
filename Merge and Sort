@@ -1,0 +1,10 @@
+class Solution:
+    def mergeNsort(self, arr1, arr2):
+        
+        merged = arr1 + arr2
+        
+        unique = list(set(merged))
+        
+        unique.sort()
+        
+        return unique
