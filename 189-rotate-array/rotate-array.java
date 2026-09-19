@@ -4,10 +4,14 @@ class Solution {
         if(n == 0) return;
         k = k % n;
         int[] temp = new int[k];
-        int j = 0;
+        /*int j = 0;
         for(int i = n - k; i < n; i++)
         {
             temp[j++] = nums[i];
+        }*/
+        for(int i = 0; i < k; i++)
+        {
+            temp[i] = nums[n - k + i];
         }
         for(int i = n - k - 1; i >= 0; i--)
         {
