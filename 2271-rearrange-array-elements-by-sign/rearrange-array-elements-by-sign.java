@@ -19,14 +19,16 @@ class Solution {
         for(int i = 0; i < n / 2; i ++)
         {
             nums[j] = pos[i];
+            nums[j + 1] = neg[i];
             j += 2;
         }
-        j = 1;
-        for(int i = 0; i < n/2; i ++)
+
+        /*j = 1;
+        for(int i = 0; i < n / 2; i ++)
         {
             nums[j] = neg[i];
             j += 2;
-        }
+        }*/
         return nums;
     }
 }
