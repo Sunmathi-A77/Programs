@@ -1,9 +1,11 @@
 class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
+        
         if(matrix.length == 0 || matrix[0].length == 0)
         {
             return new ArrayList<>();
         }
+
         List<Integer> order = new ArrayList<>();
         int top = 0;
         int bottom = matrix.length - 1;
@@ -39,6 +41,7 @@ class Solution {
                 left ++;
             }
         }
+        
         return order;
     }
 }
