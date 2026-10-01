@@ -2,7 +2,7 @@ class Solution {
     public String reverseByType(String s) {
         char[] str = s.toCharArray();
         int l = 0;
-        int r = s.length() - 1;
+        int r = str.length - 1;
         while(l <= r)
         {
             if(!Character.isLetter(str[l]))
@@ -22,7 +22,7 @@ class Solution {
             r--;
         }
         l = 0;
-        r = s.length() - 1;
+        r = str.length - 1;
         while(l <= r)
         {
             if(Character.isLetter(str[l]))
